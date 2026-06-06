@@ -3,179 +3,788 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mohsen Sayed Hassan — Senior Odoo Developer & Technical Team Leader. Odoo 9–19 migration, ZATCA, Salla, Geidea.">
-  <title>Mohsen Sayed Hassan | Odoo Portfolio</title>
+  <meta name="description" content="Mohsen Sayed Hassan — Senior Odoo Developer & Technical Team Leader. Odoo 9–19, ZATCA, Salla, Geidea, enterprise ERP.">
+  <title>Mohsen Sayed Hassan | Senior Odoo Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --bg:#0f1419; --card:#1a2332; --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --border:#30363d; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.65; padding:1.5rem 1rem 3rem; max-width:860px; margin:0 auto; }
-    header { text-align:center; padding:1.75rem 1rem; border-bottom:1px solid var(--border); margin-bottom:1.75rem; }
-    h1 { font-size:1.7rem; margin-bottom:.2rem; }
-    .role { color:var(--accent); font-weight:600; margin-bottom:.85rem; }
-    .contact { font-size:.95rem; line-height:1.8; }
-    .contact a { color:var(--accent); text-decoration:none; }
-    .contact a:hover { text-decoration:underline; }
-    .tagline { margin-top:.85rem; font-size:.9rem; color:var(--muted); }
-    section { margin-bottom:1.4rem; }
-    h2 { font-size:1rem; color:var(--accent); margin-bottom:.65rem; text-transform:uppercase; letter-spacing:.04em; }
-    p, li { color:var(--muted); font-size:.93rem; }
-    p.lead { color:var(--text); }
-    ul { margin:.4rem 0 0 1.2rem; }
-    li { margin-bottom:.3rem; }
-    details { background:var(--card); border:1px solid var(--border); border-radius:8px; margin-bottom:.45rem; }
-    summary { padding:.8rem 1rem; cursor:pointer; font-weight:600; color:var(--text); list-style:none; }
-    summary::-webkit-details-marker { display:none; }
-    summary::before { content:"▶ "; color:var(--accent); font-size:.72rem; }
-    details[open] summary::before { content:"▼ "; }
-    .body { padding:0 1rem 1rem; border-top:1px solid var(--border); }
-    .job { margin-bottom:1rem; }
-    .job-title { color:var(--text); font-weight:600; }
-    .job-meta { font-size:.85rem; color:var(--muted); margin-bottom:.35rem; }
-    table { width:100%; border-collapse:collapse; font-size:.85rem; margin-top:.4rem; }
-    th, td { text-align:left; padding:.45rem; border-bottom:1px solid var(--border); color:var(--muted); vertical-align:top; }
-    th { color:var(--text); }
-    .skills { display:flex; flex-wrap:wrap; gap:.35rem; }
-    .skills span { background:var(--card); border:1px solid var(--border); padding:.22rem .55rem; border-radius:4px; font-size:.78rem; color:var(--muted); }
-    footer { text-align:center; margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--border); font-size:.82rem; color:var(--muted); }
-    .cta { display:inline-block; margin-top:.85rem; padding:.55rem 1.1rem; background:var(--accent); color:#0f1419; font-weight:600; border-radius:6px; text-decoration:none; }
+    :root {
+      --bg: #070b12;
+      --surface: #0f1623;
+      --surface2: #151d2e;
+      --border: #243044;
+      --text: #eef2f7;
+      --muted: #93a4b8;
+      --accent: #3b82f6;
+      --accent2: #60a5fa;
+      --success: #34d399;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,.35);
+      --nav-w: 240px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar {
+      position: fixed; top: 0; left: 0; width: var(--nav-w); height: 100vh;
+      background: var(--surface); border-right: 1px solid var(--border);
+      padding: 1.5rem 1rem; overflow-y: auto; z-index: 100;
+    }
+    .sidebar .name { font-weight: 700; font-size: 1rem; margin-bottom: .15rem; }
+    .sidebar .title { font-size: .78rem; color: var(--accent2); margin-bottom: 1rem; line-height: 1.4; }
+    .sidebar .phone { font-size: .82rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .sidebar nav a {
+      display: block; padding: .45rem .65rem; margin-bottom: .15rem;
+      border-radius: 6px; color: var(--muted); font-size: .82rem; font-weight: 500;
+      text-decoration: none; transition: .15s;
+    }
+    .sidebar nav a:hover, .sidebar nav a.active { background: var(--surface2); color: var(--text); }
+    .main { margin-left: var(--nav-w); flex: 1; padding: 2rem 2.5rem 4rem; max-width: 980px; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f1623 0%, #111827 50%, #0c1929 100%);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 2rem 2.25rem; margin-bottom: 2rem; box-shadow: var(--shadow);
+    }
+    .hero h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: .35rem; }
+    .hero .subtitle { color: var(--accent2); font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem; }
+    .hero .lead { color: var(--muted); max-width: 720px; margin-bottom: 1.25rem; }
+    .hero-contacts { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .9rem; margin-bottom: 1.25rem; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .badge {
+      background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.3);
+      color: var(--accent2); padding: .3rem .75rem; border-radius: 999px; font-size: .78rem; font-weight: 500;
+    }
+    .btn {
+      display: inline-block; background: var(--accent); color: #fff; font-weight: 600;
+      padding: .65rem 1.35rem; border-radius: 8px; text-decoration: none; font-size: .9rem;
+      transition: .15s; border: none; cursor: pointer;
+    }
+    .btn:hover { background: #2563eb; text-decoration: none; }
+    .btn-outline {
+      background: transparent; border: 1px solid var(--border); color: var(--text); margin-left: .5rem;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent2); }
+
+    /* Sections */
+    section { margin-bottom: 2.5rem; scroll-margin-top: 1rem; }
+    .section-head {
+      display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem;
+      padding-bottom: .65rem; border-bottom: 1px solid var(--border);
+    }
+    .section-head h2 { font-size: 1.15rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+    .section-head .num { color: var(--accent); font-size: .85rem; font-weight: 600; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .stat {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.1rem; text-align: center;
+    }
+    .stat .val { font-size: 1.5rem; font-weight: 700; color: var(--accent2); }
+    .stat .lbl { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--border);
+    }
+    .tl-item { position: relative; margin-bottom: 1.75rem; padding-left: 1.25rem; }
+    .tl-item::before {
+      content: ''; position: absolute; left: -1.55rem; top: .45rem; width: 10px; height: 10px;
+      border-radius: 50%; background: var(--accent); border: 2px solid var(--bg);
+    }
+    .tl-item.current::before { background: var(--success); box-shadow: 0 0 0 3px rgba(52,211,153,.25); }
+    .tl-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem; margin-bottom: .35rem; }
+    .tl-role { font-weight: 700; color: var(--text); }
+    .tl-co { color: var(--accent2); font-weight: 600; }
+    .tl-meta { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
+    .tl-item ul { margin-left: 1.1rem; color: var(--muted); font-size: .88rem; }
+    .tl-item li { margin-bottom: .3rem; }
+
+    /* Cards grid */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.25rem; transition: .2s;
+    }
+    .card:hover { border-color: rgba(59,130,246,.4); }
+    .card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .35rem; }
+    .card .meta { font-size: .78rem; color: var(--accent2); margin-bottom: .5rem; }
+    .card p, .card li { font-size: .86rem; color: var(--muted); }
+    .card ul { margin: .4rem 0 0 1rem; }
+
+    /* Accordion */
+    details {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      margin-bottom: .6rem; overflow: hidden;
+    }
+    details[open] { border-color: rgba(59,130,246,.35); }
+    summary {
+      padding: 1rem 1.15rem; cursor: pointer; font-weight: 600; font-size: .92rem;
+      list-style: none; display: flex; align-items: center; gap: .5rem;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: '▸'; color: var(--accent); font-size: .85rem; transition: .15s; }
+    details[open] summary::before { transform: rotate(90deg); }
+    .detail-inner { padding: 0 1.15rem 1.15rem; border-top: 1px solid var(--border); }
+    .detail-inner h4 { font-size: .82rem; color: var(--accent2); text-transform: uppercase; letter-spacing: .04em; margin: 1rem 0 .5rem; }
+    .detail-inner h4:first-child { margin-top: .75rem; }
+    .detail-inner ul { margin: 0 0 .5rem 1.1rem; color: var(--muted); font-size: .86rem; }
+    .detail-inner li { margin-bottom: .28rem; }
+    .detail-inner p { color: var(--muted); font-size: .86rem; margin-bottom: .5rem; }
+
+    /* Skills */
+    .skill-group { margin-bottom: 1.25rem; }
+    .skill-group h3 { font-size: .82rem; color: var(--accent2); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--muted);
+      padding: .28rem .65rem; border-radius: 6px; font-size: .78rem;
+    }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+    th, td { text-align: left; padding: .6rem .75rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--text); font-weight: 600; background: var(--surface2); }
+    td { color: var(--muted); }
+
+    footer {
+      margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+      text-align: center; color: var(--muted); font-size: .82rem;
+    }
+
+    /* Mobile */
+    .menu-toggle { display: none; }
+    @media (max-width: 900px) {
+      .sidebar { transform: translateX(-100%); transition: .25s; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; padding: 1.25rem 1rem 3rem; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .menu-toggle {
+        display: block; position: fixed; top: 1rem; right: 1rem; z-index: 200;
+        background: var(--accent); color: #fff; border: none; padding: .5rem .85rem;
+        border-radius: 6px; font-weight: 600; cursor: pointer;
+      }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Mohsen Sayed Hassan</h1>
-  <p class="role">Senior Odoo Developer · Technical Team Leader</p>
-  <p class="contact">
-    Egypt · 📱 <a href="tel:+201277523059">+20 127 752 3059</a><br>
-    📧 <a href="mailto:dev.odooerp@gmail.com">dev.odooerp@gmail.com</a><br>
-    💼 <a href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">LinkedIn</a>
-    · 🐙 <a href="https://github.com/odoo00" target="_blank" rel="noopener">GitHub</a>
-  </p>
-  <p class="tagline">8+ years · Odoo migration 9–19 · Egypt & Saudi Arabia · Full-cycle ERP</p>
-  <a class="cta" href="mailto:dev.odooerp@gmail.com">Contact me</a>
-</header>
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">Menu</button>
 
-<section>
-  <h2>Summary</h2>
-  <p class="lead">Senior Odoo Developer and Technical Team Leader with 8+ years building scalable ERP solutions across Egypt and Saudi Arabia. Full-cycle implementation: requirements, architecture, custom modules, Odoo migration (9–19), API integration, deployment, and production support. Expertise in Python, Odoo ORM, PostgreSQL, JavaScript, OWL, QWeb, REST/SOAP, ZATCA, Salla, payment gateways, QWeb/DOCX reports, Git, Linux, and Docker.</p>
-</section>
+<div class="layout">
+  <aside class="sidebar">
+    <p class="name">Mohsen Sayed Hassan</p>
+    <p class="title">Senior Odoo Developer<br>Technical Team Leader</p>
+    <p class="phone">📱 +20 127 752 3059</p>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
 
-<section>
-  <h2>Experience</h2>
+  <main class="main">
 
-  <div class="job">
-    <p class="job-title">Technical Team Leader — CTIT Software</p>
-    <p class="job-meta">Jeddah, Saudi Arabia · Nov 2025 – Present</p>
-    <ul>
-      <li>Lead Odoo technical team: tasks, reviews, delivery, and standards</li>
-      <li>Architecture, documentation, best practices, and scalable design</li>
-      <li>Full lifecycle: customization, integrations, testing, deployment, support</li>
-      <li>Mentor developers; collaborate with consultants, PMs, and stakeholders</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <p class="job-title">Senior Odoo Developer — CTIT Software</p>
-    <p class="job-meta">Jeddah, Saudi Arabia · Nov 2022 – Nov 2025</p>
-    <ul>
-      <li>Performance tuning, PostgreSQL optimization, high-availability operations</li>
-      <li>Deployments, upgrades, migrations, and version transitions</li>
-      <li>Code quality, mentoring, workflows, and production troubleshooting</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <p class="job-title">Senior Odoo Developer — Capital ERP</p>
-    <p class="job-meta">Baghdad, Iraq (Remote) · May 2022 – Oct 2022</p>
-    <ul>
-      <li>Custom modules, API integrations, debugging, and post-go-live support</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <p class="job-title">Senior Odoo Developer — AlMoasher Business</p>
-    <p class="job-meta">Cairo, Egypt · Mar 2020 – May 2022</p>
-    <ul>
-      <li>Sales, Purchase, Inventory, Accounting, HR, Projects customization</li>
-      <li>Security groups, record rules, reports, workflows, and automation</li>
-    </ul>
-  </div>
-
-  <details>
-    <summary>Earlier roles</summary>
-    <div class="body">
-      <div class="job">
-        <p class="job-title">Odoo Developer — Notion Egypt</p>
-        <p class="job-meta">Cairo, Egypt · Jan 2020 – Mar 2020</p>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <h1>Mohsen Sayed Hassan</h1>
+      <p class="subtitle">Senior Odoo Developer · Technical Team Leader</p>
+      <p class="lead">
+        8+ years delivering full-cycle Odoo ERP across Egypt and Saudi Arabia — from requirements and architecture
+        to custom development, Odoo migration (9–19), API integrations, deployment, and production support.
+      </p>
+      <div class="hero-contacts">
+        <span>📍 Egypt</span>
+        <span>📱 <a href="tel:+201277523059">+20 127 752 3059</a></span>
+        <span>📧 <a href="mailto:dev.odooerp@gmail.com">dev.odooerp@gmail.com</a></span>
+        <span>💼 <a href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">LinkedIn</a></span>
+        <span>🐙 <a href="https://github.com/odoo00" target="_blank" rel="noopener">GitHub</a></span>
       </div>
-      <div class="job">
-        <p class="job-title">Odoo Developer — Balance</p>
-        <p class="job-meta">Cairo, Egypt · Jun 2016 – Jan 2018</p>
+      <div class="hero-badges">
+        <span class="badge">Odoo 9 → 19</span>
+        <span class="badge">Migration</span>
+        <span class="badge">ZATCA</span>
+        <span class="badge">Salla</span>
+        <span class="badge">Geidea</span>
+        <span class="badge">REST / Webhooks</span>
+        <span class="badge">OWL / JavaScript</span>
+        <span class="badge">Docker</span>
       </div>
+      <div style="margin-top:1.25rem">
+        <a class="btn" href="mailto:dev.odooerp@gmail.com">Hire / Contact</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">LinkedIn Profile</a>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat"><div class="val">8+</div><div class="lbl">Years Odoo ERP</div></div>
+      <div class="stat"><div class="val">9→19</div><div class="lbl">Version Migration</div></div>
+      <div class="stat"><div class="val">8</div><div class="lbl">Featured Clients</div></div>
+      <div class="stat"><div class="val">7+</div><div class="lbl">Product Solutions</div></div>
     </div>
-  </details>
-</section>
 
-<section>
-  <h2>Featured projects</h2>
-  <details open>
-    <summary>Enterprise & platform work</summary>
-    <div class="body">
-      <table>
-        <tr><th>Project</th><th>Focus</th></tr>
-        <tr><td>CTIT SaaS Platform</td><td>Cloud ERP hosting, subscriptions, shared product stack</td></tr>
-        <tr><td>Al Shatry</td><td>Trading & wholesale ERP, ZATCA e-invoicing</td></tr>
-        <tr><td>Al Bilady</td><td>Retail & distribution, multi-branch automation</td></tr>
-        <tr><td>Mega Trust</td><td>Distribution, purchase workflows, Salla sync</td></tr>
-        <tr><td>Roya</td><td>Multi-branch accounting, tax reports, custom invoicing</td></tr>
-        <tr><td>Al Suwailim</td><td>Produce wholesale, ZATCA, APIs, sale automation</td></tr>
-        <tr><td>GOSI Compliance</td><td>Saudi social insurance rules, wages, audit readiness</td></tr>
-        <tr><td>Bonya Real Estate</td><td>Property contracts, rental accounting, reporting</td></tr>
-      </table>
-    </div>
-  </details>
-</section>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-head"><span class="num">01</span><h2>About Me</h2></div>
+      <p style="color:var(--muted); margin-bottom:1rem;">
+        Senior Odoo Developer and Technical Team Leader at <strong style="color:var(--text)">CTIT Software</strong> (Jeddah, Saudi Arabia).
+        I specialize in designing, developing, and delivering scalable Odoo-based business solutions for diverse industries —
+        retail, distribution, trading, real estate, HR compliance, and eCommerce.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>What I do</h3>
+          <ul>
+            <li>Full-cycle Odoo implementation & customization</li>
+            <li>Odoo version migration (9 through 19)</li>
+            <li>Technical team leadership & code review</li>
+            <li>PostgreSQL performance & database optimization</li>
+            <li>QWeb, DOCX, and dynamic report development</li>
+            <li>Workflow automation & server actions</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Integration expertise</h3>
+          <ul>
+            <li>ZATCA e-invoicing (Saudi Arabia)</li>
+            <li>Salla marketplace (OAuth & webhooks)</li>
+            <li>Geidea payment gateway</li>
+            <li>REST / SOAP / XML-RPC / Odoo RPC</li>
+            <li>Mobile & logistics REST connectors</li>
+            <li>GOSI social insurance compliance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<section>
-  <h2>Core solutions & integrations</h2>
-  <details open>
-    <summary>Products I developed or led</summary>
-    <div class="body">
-      <table>
-        <tr><th>Solution</th><th>Highlights</th></tr>
-        <tr><td><strong>Dynamic Report Designer</strong></td><td>No-code QWeb & DOCX reports, multiple themes, dot-matrix & summary layouts</td></tr>
-        <tr><td><strong>Access & Permissions Studio</strong></td><td>Menus, fields, views, chatter control; Rules Mode (OWL/JavaScript)</td></tr>
-        <tr><td><strong>REST Application Gateway</strong></td><td>JWT APIs, scopes, webhooks, rate limits, mobile & third-party connectivity</td></tr>
-        <tr><td><strong>ZATCA E-Invoicing</strong></td><td>Invoice submission, QR, retry flows, compliance sync</td></tr>
-        <tr><td><strong>Salla Marketplace Integration</strong></td><td>OAuth, order webhooks, payments, shipping, multichannel sales</td></tr>
-        <tr><td><strong>Geidea Payment Gateway</strong></td><td>Payment links on sales/invoices, callbacks, status handling</td></tr>
-        <tr><td><strong>Logistics Connector</strong></td><td>REST integration for mobile logistics & order status sync</td></tr>
-      </table>
-    </div>
-  </details>
-</section>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-head"><span class="num">02</span><h2>Experience</h2></div>
+      <div class="timeline">
 
-<section>
-  <h2>Education & certification</h2>
-  <p><strong style="color:var(--text)">Bachelor's — Computers & Artificial Intelligence</strong><br>Beni Suef University · Graduated Jun 2018</p>
-  <p style="margin-top:.5rem"><strong style="color:var(--text)">Odoo Certification</strong> · El Askary Academy · Sep 2026</p>
-  <p style="margin-top:.5rem">Languages: Arabic (Native) · English (Proficient)</p>
-</section>
+        <div class="tl-item current">
+          <div class="tl-head">
+            <span><span class="tl-role">Technical Team Leader</span> · <span class="tl-co">CTIT Software</span></span>
+            <span class="tl-meta">Nov 2025 – Present</span>
+          </div>
+          <p class="tl-meta">Jeddah, Saudi Arabia · On-site</p>
+          <ul>
+            <li>Lead and manage the Odoo technical team: task assignment, progress monitoring, deliverable reviews, on-time delivery</li>
+            <li>Review and optimize code quality, module architecture, and technical documentation; enforce Odoo best practices</li>
+            <li>Analyze complex business requirements; design secure, scalable, high-performance solutions</li>
+            <li>Manage full ERP lifecycle: customization, module development, third-party integrations, testing, deployment, support</li>
+            <li>Mentor developers; collaborate with functional consultants, PMs, and stakeholders on production stability</li>
+          </ul>
+        </div>
 
-<section>
-  <h2>Core competencies</h2>
-  <div class="skills">
-    <span>Python</span><span>Odoo 9–19</span><span>Odoo Migration</span><span>PostgreSQL</span><span>Odoo ORM</span>
-    <span>REST API</span><span>SOAP</span><span>Webhooks</span><span>ZATCA</span><span>Salla</span>
-    <span>JavaScript</span><span>OWL</span><span>QWeb</span><span>XML</span><span>DOCX Reports</span>
-    <span>Git</span><span>Linux</span><span>Docker</span><span>Payment Gateways</span><span>System Integration</span>
-  </div>
-</section>
+        <div class="tl-item">
+          <div class="tl-head">
+            <span><span class="tl-role">Senior Odoo Developer</span> · <span class="tl-co">CTIT Software</span></span>
+            <span class="tl-meta">Nov 2022 – Nov 2025</span>
+          </div>
+          <p class="tl-meta">Jeddah, Saudi Arabia · On-site</p>
+          <ul>
+            <li>Optimized Odoo performance, PostgreSQL queries, and platform stability for high availability</li>
+            <li>Managed module deployment, upgrades, migrations, and version transitions with minimal downtime</li>
+            <li>Mentored junior developers; enforced code quality, ORM patterns, and structured module design</li>
+            <li>Delivered reusable products: Dynamic Report Designer, Access & Permissions Studio, REST Application Gateway</li>
+            <li>Led eCommerce (Salla), payment gateways (Geidea), ZATCA, and logistics API integrations</li>
+          </ul>
+        </div>
 
-<footer>
-  <p>Portfolio · Mohsen Sayed Hassan · 2026</p>
-  <p><a href="https://github.com/odoo00">github.com/odoo00</a></p>
-</footer>
+        <div class="tl-item">
+          <div class="tl-head">
+            <span><span class="tl-role">Senior Odoo Developer</span> · <span class="tl-co">Capital ERP</span></span>
+            <span class="tl-meta">May 2022 – Oct 2022</span>
+          </div>
+          <p class="tl-meta">Baghdad, Iraq · Remote</p>
+          <ul>
+            <li>Delivered technical assistance: diagnose issues, resolve bugs, maintain platform performance</li>
+            <li>Designed API integrations with external applications and enterprise systems</li>
+            <li>Partnered with functional teams through development, validation, and deployment</li>
+            <li>Executed troubleshooting, debugging, and testing for custom modules post go-live</li>
+          </ul>
+        </div>
 
+        <div class="tl-item">
+          <div class="tl-head">
+            <span><span class="tl-role">Senior Odoo Developer</span> · <span class="tl-co">AlMoasher Business</span></span>
+            <span class="tl-meta">Mar 2020 – May 2022</span>
+          </div>
+          <p class="tl-meta">Cairo, Egypt</p>
+          <ul>
+            <li>Customized Sales, Purchase, Inventory, Accounting, HR, and Projects modules (Python, JS, XML, ORM)</li>
+            <li>Built models, views, menus, actions, reports, workflows, and automation processes</li>
+            <li>Configured security groups, record rules, and user permissions</li>
+            <li>Translated business requirements into multi-company solutions with advanced reporting</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-head">
+            <span><span class="tl-role">Odoo Developer</span> · <span class="tl-co">Notion Egypt</span></span>
+            <span class="tl-meta">Jan 2020 – Mar 2020</span>
+          </div>
+          <p class="tl-meta">Cairo, Egypt</p>
+          <ul>
+            <li>Implemented custom modules and business process automation for client deliverables</li>
+            <li>Supported testing, deployment, and handover in a fast-paced cycle</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-head">
+            <span><span class="tl-role">Odoo Developer</span> · <span class="tl-co">Balance</span></span>
+            <span class="tl-meta">Jun 2016 – Jan 2018</span>
+          </div>
+          <p class="tl-meta">Cairo, Egypt</p>
+          <ul>
+            <li>Developed and customized Odoo modules, reports, and integrations for multiple clients</li>
+            <li>Collaborated on requirements gathering, implementation, and UAT support</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-head"><span class="num">03</span><h2>Featured Projects</h2></div>
+
+      <details open>
+        <summary>CTIT SaaS Platform · Official ERP Product</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Technical Team Leader / Lead Developer · <strong>Odoo 17</strong> · Saudi Arabia</p>
+          <h4>Scope</h4>
+          <ul>
+            <li>Core company product stack used across the CTIT client base</li>
+            <li>Saudi EDI, subscriptions, branch sales, portal & pro-forma flows</li>
+            <li>SaaS hosting: Docker/Portainer provisioning, Traefik routing, automated backups</li>
+            <li>Subscription billing portal and customer onboarding website</li>
+            <li>Shared reusable frameworks: reports, access control, REST API layer</li>
+            <li>Production support, upgrades, and continuous product improvement</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Al Shatry · Trading & Wholesale + ZATCA</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Senior Developer · <strong>Odoo 13 / 17</strong></p>
+          <h4>Deliverables</h4>
+          <ul>
+            <li>Full ERP customization: accounting, inventory, landed costs, branch operations</li>
+            <li>ZATCA e-invoicing: invoice submission, QR codes, retry flows, external sync</li>
+            <li>Import-heavy inventory traceability and financial reporting</li>
+            <li>Production stabilization after version upgrades</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Al Bilady · Retail & Distribution</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Lead Developer · <strong>Odoo 16 / 17</strong> · Saudi Arabia</p>
+          <ul>
+            <li>Multi-branch Sales, Purchase, Inventory, and Accounting</li>
+            <li>Automated pricing, stock, and invoicing workflows</li>
+            <li>Custom management reports and operational automation</li>
+            <li>Go-live support and user training handover</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Mega Trust · Distribution & eCommerce</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Senior Developer · <strong>Odoo 17 / 18</strong></p>
+          <ul>
+            <li>Purchase request tier validation and approval workflows</li>
+            <li>Warehouse availability widget (OWL/JavaScript popover per line)</li>
+            <li>Cheque management and CRM/sales/purchase extensions</li>
+            <li>Salla marketplace integration: orders, stock, payments, delivery webhooks</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Roya · Multi-Branch Enterprise (Egypt)</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Senior Developer · <strong>Odoo 15</strong></p>
+          <ul>
+            <li>Per-branch document numbering for sales, purchase, and accounting</li>
+            <li>GCC tax reporting and custom invoice/sale QWeb reports</li>
+            <li>Security controls and Saudi GOSI HR extensions</li>
+            <li>Multi-location consolidated operations</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Al Suwailim · Vegetables & Produce Wholesale</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Senior Developer · <strong>Odoo 17</strong></p>
+          <ul>
+            <li>Fresh produce / hraj trading: sale & purchase automation</li>
+            <li>ZATCA manual send and compliance controls</li>
+            <li>Partner connectivity APIs and portal sales orders</li>
+            <li>End-to-end stock-to-invoice workflows for high-volume operations</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>GOSI Compliance · Saudi Social Insurance</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Architect / Lead Developer · <strong>Odoo 17 Community</strong></p>
+          <ul>
+            <li>Eligibility rules, contribution rates, and wage calculations</li>
+            <li>Extended employee and contract profiles for GOSI data</li>
+            <li>Audit trail for calculations, rule applications, and validation events</li>
+            <li>API-ready connector layer for future GOSI Engagement integration</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Bonya · Real Estate & Property Management</summary>
+        <div class="detail-inner">
+          <p><strong style="color:var(--text)">Role:</strong> Lead Developer · <strong>Odoo 17</strong> · ~40+ custom extensions</p>
+          <ul>
+            <li>Rental contracts, opening balances, client status reports</li>
+            <li>Property accounting, project costing, letters of credit</li>
+            <li>Hijri calendar UI (JavaScript), WhatsApp extensions</li>
+            <li>Bank commissions, import payments, customer registration portal</li>
+            <li>No-code dynamic reporting integrated across property workflows</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section id="solutions">
+      <div class="section-head"><span class="num">04</span><h2>Core Product Solutions</h2></div>
+
+      <details open>
+        <summary>Dynamic Report Designer</summary>
+        <div class="detail-inner">
+          <p>No-code report builder — design and publish Odoo reports without Python development.</p>
+          <h4>Report types</h4>
+          <ul>
+            <li>Custom, Proforma, Invoice, Vendor Bill, Journal Entry</li>
+            <li>Quotation, Sale Order, RFQ, Purchase Order, Delivery Note</li>
+          </ul>
+          <h4>Design capabilities</h4>
+          <ul>
+            <li>Replace existing standard reports or register new print actions</li>
+            <li>Primary vs extended report modes; header/footer-only layouts</li>
+            <li>Per-company logos, colors, and paper formats</li>
+            <li>Field-mapping wizard — place model fields into report sections</li>
+            <li>One-section or two-section summary blocks (left/right alignment)</li>
+            <li>Standalone dynamic header & footer designer</li>
+          </ul>
+          <h4>Visual themes</h4>
+          <p>Corporate · Modern · Formal · Modern Formal · Creative · Minimalist · Retro · Tech · Eco-friendly · CTIT style</p>
+          <h4>Advanced outputs</h4>
+          <ul>
+            <li>DOCX template upload with Odoo field merge</li>
+            <li>Dot-matrix / continuous paper layouts</li>
+            <li>Dedicated summary report models and print actions</li>
+            <li>Custom wizard for on-demand generation</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Access & Permissions Studio</summary>
+        <div class="detail-inner">
+          <p>All-in-one access management — control what each user sees and can do, per company.</p>
+          <h4>Menus & system</h4>
+          <ul>
+            <li>Hide menus, sub-menus, and applications</li>
+            <li>Disable login for selected users; block developer/debug mode</li>
+          </ul>
+          <h4>Fields & views</h4>
+          <ul>
+            <li>Invisible, read-only, required rules per field with domain support</li>
+            <li>Hide tree, form, kanban, calendar, pivot, graph views</li>
+            <li>Hide smart buttons, object buttons, toolbar actions, notebook tabs</li>
+            <li>Chatter: full hide or hide send message / log notes / schedule activity</li>
+          </ul>
+          <h4>Model actions</h4>
+          <ul>
+            <li>Hide create, edit, delete, duplicate, archive, unarchive (global or per model)</li>
+            <li>Hide import, export, spreadsheet; remove print/server actions</li>
+            <li>Whole-system read-only user profile</li>
+          </ul>
+          <h4>Rules Mode (OWL / JavaScript)</h4>
+          <ul>
+            <li>Configure access rules directly on the live form — no separate admin screen</li>
+            <li>Secure backend with upsert logic; bilingual help panels; automated QA tours</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>REST Application Gateway</summary>
+        <div class="detail-inner">
+          <p>Universal REST API layer for mobile apps, portals, and third-party systems.</p>
+          <h4>Authentication</h4>
+          <ul>
+            <li>Auto-generated client ID & secret per application</li>
+            <li>JWT HS256 access + refresh tokens (configurable TTL)</li>
+            <li>Secret rotation; enable/disable applications instantly</li>
+          </ul>
+          <h4>Permissions & governance</h4>
+          <ul>
+            <li>Scopes per model: read, create, write, unlink, call</li>
+            <li>Method registry: slug, target model, Python method name</li>
+            <li>Rate-limit policies; CORS allowed origins</li>
+            <li>Full API audit log</li>
+          </ul>
+          <h4>Developer tools</h4>
+          <ul>
+            <li>Postman collections (JWT + menu access)</li>
+            <li>Flutter menu-key documentation for mobile teams</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Sales Order Workflow Automation</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>Configurable pipeline on sale order confirmation</li>
+            <li>Auto create invoice → validate invoice → transfer delivery</li>
+            <li>Reduces manual steps in high-volume sales environments</li>
+            <li>Server actions and settings-driven configuration</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Developer Operations Dashboard</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>Project, team, and developer performance dashboards</li>
+            <li>Assignment recommendation wizard and capacity awareness</li>
+            <li>KPI governance, alerts, and executive summaries</li>
+            <li>Integrated with Odoo Project and HR modules</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Real Estate & Rental Suite (Bonya stack)</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>Rental contract lifecycle, milestones, and expense tracking</li>
+            <li>Opening balances, client status reports (Hijri/Gregorian)</li>
+            <li>Property units, projects, partner ledger reports</li>
+            <li>Dynamic list columns, export PDF, WhatsApp partner info</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <section id="integrations">
+      <div class="section-head"><span class="num">05</span><h2>Integrations & Compliance</h2></div>
+
+      <details open>
+        <summary>ZATCA E-Invoicing</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>E-invoice submission to Saudi tax platform</li>
+            <li>QR code generation on invoices</li>
+            <li>Retry flows and error handling for failed submissions</li>
+            <li>Invoice state tracking and external E-Inv service sync</li>
+            <li>Used across Shatry, Suwailim, and CTIT client deployments</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Salla Marketplace Integration</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>Salla OAuth authentication and multi-store channel management</li>
+            <li>Webhook endpoint with HMAC signature validation</li>
+            <li>Events: order created, updated, status updated</li>
+            <li>Auto-create customers, payment methods, delivery companies</li>
+            <li>Status mapper linking Salla workflow to Odoo sales states</li>
+            <li>UTM source and multichannel order reconciliation</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Geidea Payment Gateway</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>Payment links on sales orders, invoices, and account payments</li>
+            <li>Server-to-server status callbacks and state mapping</li>
+            <li>Apple Pay / Mada support assets</li>
+            <li>Email payment templates in Arabic</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Webhook Extensions (outbound)</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>HMAC-SHA256 signed POST to external HTTPS URLs</li>
+            <li>Subscribe to create / update / delete on any Odoo model</li>
+            <li>Field selection in payload; immediate or cron-queued delivery</li>
+            <li>Retry with exponential backoff; delivery history & payload preview</li>
+            <li>Allowed-host allowlist for SSRF protection</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>GOSI Compliance Layer</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>Contribution rules per nationality, company scope, validity period</li>
+            <li>Stored contribution wages and employee/employer amounts</li>
+            <li>Compliance log for audits and validation events</li>
+            <li>API connection profiles for future government integration</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Logistics Connector</summary>
+        <div class="detail-inner">
+          <ul>
+            <li>REST integration for mobile logistics and delivery apps</li>
+            <li>Order sync, status updates, and field mapping via API gateway</li>
+            <li>Supports PickAppo-class external systems as system of engagement</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-head"><span class="num">06</span><h2>Core Competencies</h2></div>
+
+      <div class="skill-group">
+        <h3>Odoo & Backend</h3>
+        <div class="tags">
+          <span class="tag">Odoo ERP Development</span><span class="tag">Odoo Custom Development</span>
+          <span class="tag">Odoo ORM</span><span class="tag">Odoo Migration 9–19</span>
+          <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span>
+          <span class="tag">Database Optimization</span><span class="tag">Multi-company</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Frontend & Reports</h3>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">OWL Framework</span>
+          <span class="tag">QWeb</span><span class="tag">XML</span><span class="tag">HTML/CSS</span>
+          <span class="tag">DOCX Reports</span><span class="tag">Dynamic Reports</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Integration & APIs</h3>
+        <div class="tags">
+          <span class="tag">REST API</span><span class="tag">SOAP</span><span class="tag">Odoo RPC</span>
+          <span class="tag">XML-RPC</span><span class="tag">Webhooks</span><span class="tag">Web Services</span>
+          <span class="tag">Payment Gateways</span><span class="tag">ZATCA</span><span class="tag">Salla</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>DevOps & Leadership</h3>
+        <div class="tags">
+          <span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Docker</span>
+          <span class="tag">System Integration</span><span class="tag">Technical Leadership</span>
+          <span class="tag">Code Review</span><span class="tag">Agile</span><span class="tag">Strategic Planning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-head"><span class="num">07</span><h2>Education & Certification</h2></div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Bachelor's Degree</h3>
+          <p class="meta">Computers & Artificial Intelligence</p>
+          <p>Beni Suef University · Graduated June 2018<br>Graduation Project: Excellent</p>
+        </div>
+        <div class="card">
+          <h3>Odoo Certification</h3>
+          <p class="meta">El Askary Academy · September 2026</p>
+          <p>Odoo ERP Development professional certification track</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h3>Languages</h3>
+        <p><strong style="color:var(--text)">Arabic:</strong> Native &nbsp;·&nbsp; <strong style="color:var(--text)">English:</strong> Proficient</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head"><span class="num">08</span><h2>Contact</h2></div>
+      <div class="card" style="text-align:center; padding:2rem">
+        <p style="font-size:1.1rem; color:var(--text); margin-bottom:1rem">Open to remote, hybrid, and on-site opportunities in GCC & Egypt.</p>
+        <p style="margin-bottom:1.25rem">
+          📱 <a href="tel:+201277523059">+20 127 752 3059</a> &nbsp;·&nbsp;
+          📧 <a href="mailto:dev.odooerp@gmail.com">dev.odooerp@gmail.com</a>
+        </p>
+        <a class="btn" href="mailto:dev.odooerp@gmail.com">Send Email</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Mohsen Sayed Hassan · Senior Odoo Developer Portfolio</p>
+      <p style="margin-top:.35rem"><a href="https://github.com/odoo00">github.com/odoo00</a></p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // Highlight active nav on scroll
+  const sections = document.querySelectorAll('section[id], .hero');
+  const navLinks = document.querySelectorAll('.sidebar nav a');
+  window.addEventListener('scroll', () => {
+    let current = 'home';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id || 'home';
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
 </body>
 </html>
