@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mohsen Sayed Hassan — Senior Odoo Developer & Technical Team Leader. Odoo 9–19, ZATCA, Salla, Geidea, enterprise ERP.">
-  <title>Mohsen Sayed Hassan | Senior Odoo Developer Portfolio</title>
+  <meta name="description" content="Mohsen Sayed Hassan — Senior Odoo Developer & Technical Team Leader at CTIT Software. Enterprise ERP, Odoo 9–19, ZATCA, Salla.">
+  <title>Mohsen Sayed Hassan | Odoo Developer Profile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -20,10 +20,9 @@
       --success: #34d399;
       --radius: 12px;
       --shadow: 0 4px 24px rgba(0,0,0,.35);
-      --nav-w: 240px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
@@ -34,50 +33,44 @@
     a { color: var(--accent2); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Layout */
-    .layout { display: flex; min-height: 100vh; }
-    .sidebar {
-      position: fixed; top: 0; left: 0; width: var(--nav-w); height: 100vh;
-      background: var(--surface); border-right: 1px solid var(--border);
-      padding: 1.5rem 1rem; overflow-y: auto; z-index: 100;
+    /* Full-width layout */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(7,11,18,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
-    .sidebar .name { font-weight: 700; font-size: 1rem; margin-bottom: .15rem; }
-    .sidebar .title { font-size: .78rem; color: var(--accent2); margin-bottom: 1rem; line-height: 1.4; }
-    .sidebar .phone { font-size: .82rem; color: var(--muted); margin-bottom: 1.25rem; }
-    .sidebar nav a {
-      display: block; padding: .45rem .65rem; margin-bottom: .15rem;
-      border-radius: 6px; color: var(--muted); font-size: .82rem; font-weight: 500;
-      text-decoration: none; transition: .15s;
+    .topbar-inner {
+      width: 100%; max-width: 1440px; margin: 0 auto;
+      padding: .75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     }
-    .sidebar nav a:hover, .sidebar nav a.active { background: var(--surface2); color: var(--text); }
-    .main { margin-left: var(--nav-w); flex: 1; padding: 2rem 2.5rem 4rem; max-width: 980px; }
+    .topbar-brand { font-weight: 700; font-size: .95rem; white-space: nowrap; }
+    .topbar-brand span { color: var(--muted); font-weight: 500; font-size: .82rem; margin-left: .5rem; }
+    .topnav { display: flex; flex-wrap: wrap; gap: .15rem .35rem; justify-content: flex-end; }
+    .topnav a {
+      padding: .4rem .65rem; border-radius: 6px; color: var(--muted);
+      font-size: .78rem; font-weight: 500; text-decoration: none; transition: .15s;
+    }
+    .topnav a:hover, .topnav a.active { background: var(--surface2); color: var(--text); }
+    .page { width: 100%; padding: 5rem 2rem 3rem; }
+    .content { width: 100%; max-width: 1440px; margin: 0 auto; }
 
     /* Hero */
     .hero {
       background: linear-gradient(135deg, #0f1623 0%, #111827 50%, #0c1929 100%);
       border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 2rem 2.25rem; margin-bottom: 2rem; box-shadow: var(--shadow);
+      padding: 2.5rem 2.5rem; margin-bottom: 2rem; box-shadow: var(--shadow);
+      width: 100%;
     }
-    .hero h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: .35rem; }
-    .hero .subtitle { color: var(--accent2); font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem; }
-    .hero .lead { color: var(--muted); max-width: 720px; margin-bottom: 1.25rem; }
+    .hero h1 { font-size: 2.25rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: .35rem; }
+    .hero .subtitle { color: var(--accent2); font-weight: 600; font-size: 1.1rem; margin-bottom: .35rem; }
+    .hero .employer { color: var(--muted); font-size: .92rem; margin-bottom: 1rem; }
+    .hero .lead { color: var(--muted); max-width: 900px; margin-bottom: 1.25rem; }
     .hero-contacts { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .9rem; margin-bottom: 1.25rem; }
     .hero-badges { display: flex; flex-wrap: wrap; gap: .5rem; }
     .badge {
       background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.3);
       color: var(--accent2); padding: .3rem .75rem; border-radius: 999px; font-size: .78rem; font-weight: 500;
     }
-    .btn {
-      display: inline-block; background: var(--accent); color: #fff; font-weight: 600;
-      padding: .65rem 1.35rem; border-radius: 8px; text-decoration: none; font-size: .9rem;
-      transition: .15s; border: none; cursor: pointer;
-    }
-    .btn:hover { background: #2563eb; text-decoration: none; }
-    .btn-outline {
-      background: transparent; border: 1px solid var(--border); color: var(--text); margin-left: .5rem;
-    }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent2); }
-
     /* Sections */
     section { margin-bottom: 2.5rem; scroll-margin-top: 1rem; }
     .section-head {
@@ -115,7 +108,8 @@
     .tl-item li { margin-bottom: .3rem; }
 
     /* Cards grid */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .card {
       background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 1.25rem; transition: .2s;
@@ -168,31 +162,26 @@
     }
 
     /* Mobile */
-    .menu-toggle { display: none; }
     @media (max-width: 900px) {
-      .sidebar { transform: translateX(-100%); transition: .25s; }
-      .sidebar.open { transform: translateX(0); }
-      .main { margin-left: 0; padding: 1.25rem 1rem 3rem; }
+      .page { padding: 4.5rem 1rem 2rem; }
+      .topbar-inner { padding: .65rem 1rem; flex-wrap: wrap; }
+      .topnav { width: 100%; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: .25rem; }
       .stats { grid-template-columns: 1fr 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .menu-toggle {
-        display: block; position: fixed; top: 1rem; right: 1rem; z-index: 200;
-        background: var(--accent); color: #fff; border: none; padding: .5rem .85rem;
-        border-radius: 6px; font-weight: 600; cursor: pointer;
-      }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding: 1.5rem 1.25rem; }
+      .hero h1 { font-size: 1.65rem; }
     }
   </style>
 </head>
 <body>
 
-<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">Menu</button>
-
-<div class="layout">
-  <aside class="sidebar">
-    <p class="name">Mohsen Sayed Hassan</p>
-    <p class="title">Senior Odoo Developer<br>Technical Team Leader</p>
-    <p class="phone">📱 +20 127 752 3059</p>
-    <nav>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">
+      Mohsen Sayed Hassan
+      <span>+20 127 752 3059</span>
+    </div>
+    <nav class="topnav">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -201,19 +190,23 @@
       <a href="#integrations">Integrations</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#links">Links</a>
     </nav>
-  </aside>
+  </div>
+</header>
 
-  <main class="main">
+<div class="page">
+  <div class="content">
 
     <!-- HERO -->
     <section id="home" class="hero">
       <h1>Mohsen Sayed Hassan</h1>
       <p class="subtitle">Senior Odoo Developer · Technical Team Leader</p>
+      <p class="employer">CTIT Software · Jeddah, Saudi Arabia</p>
       <p class="lead">
-        8+ years delivering full-cycle Odoo ERP across Egypt and Saudi Arabia — from requirements and architecture
-        to custom development, Odoo migration (9–19), API integrations, deployment, and production support.
+        8+ years building enterprise Odoo ERP across Egypt and Saudi Arabia — architecture, custom development,
+        Odoo migration (9–19), API integrations, team leadership, and production environments for retail,
+        distribution, real estate, compliance, and eCommerce.
       </p>
       <div class="hero-contacts">
         <span>📍 Egypt</span>
@@ -232,10 +225,6 @@
         <span class="badge">OWL / JavaScript</span>
         <span class="badge">Docker</span>
       </div>
-      <div style="margin-top:1.25rem">
-        <a class="btn" href="mailto:dev.odooerp@gmail.com">Hire / Contact</a>
-        <a class="btn btn-outline" href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">LinkedIn Profile</a>
-      </div>
     </section>
 
     <!-- STATS -->
@@ -250,9 +239,9 @@
     <section id="about">
       <div class="section-head"><span class="num">01</span><h2>About Me</h2></div>
       <p style="color:var(--muted); margin-bottom:1rem;">
-        Senior Odoo Developer and Technical Team Leader at <strong style="color:var(--text)">CTIT Software</strong> (Jeddah, Saudi Arabia).
-        I specialize in designing, developing, and delivering scalable Odoo-based business solutions for diverse industries —
-        retail, distribution, trading, real estate, HR compliance, and eCommerce.
+        Technical Team Leader and Senior Odoo Developer at <strong style="color:var(--text)">CTIT Software</strong> (Jeddah).
+        I lead the technical team and build enterprise-grade Odoo products and client implementations across
+        retail, distribution, trading, real estate, HR compliance, and eCommerce in the GCC and Egypt.
       </p>
       <div class="grid-2">
         <div class="card">
@@ -750,32 +739,37 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-head"><span class="num">08</span><h2>Contact</h2></div>
-      <div class="card" style="text-align:center; padding:2rem">
-        <p style="font-size:1.1rem; color:var(--text); margin-bottom:1rem">Open to remote, hybrid, and on-site opportunities in GCC & Egypt.</p>
-        <p style="margin-bottom:1.25rem">
-          📱 <a href="tel:+201277523059">+20 127 752 3059</a> &nbsp;·&nbsp;
-          📧 <a href="mailto:dev.odooerp@gmail.com">dev.odooerp@gmail.com</a>
-        </p>
-        <a class="btn" href="mailto:dev.odooerp@gmail.com">Send Email</a>
-        <a class="btn btn-outline" href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- LINKS -->
+    <section id="links">
+      <div class="section-head"><span class="num">08</span><h2>Professional Links</h2></div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:dev.odooerp@gmail.com">dev.odooerp@gmail.com</a></p>
+        </div>
+        <div class="card">
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">linkedin.com/in/mohsen-sayed-hassan</a></p>
+        </div>
+        <div class="card">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/odoo00" target="_blank" rel="noopener">github.com/odoo00</a></p>
+        </div>
       </div>
     </section>
 
     <footer>
-      <p>© 2026 Mohsen Sayed Hassan · Senior Odoo Developer Portfolio</p>
-      <p style="margin-top:.35rem"><a href="https://github.com/odoo00">github.com/odoo00</a></p>
+      <p>© 2026 Mohsen Sayed Hassan · Technical Team Leader · CTIT Software</p>
+      <p style="margin-top:.35rem">Enterprise Odoo ERP · Odoo 9–19 · Egypt & Saudi Arabia</p>
     </footer>
 
-  </main>
+  </div>
 </div>
 
 <script>
   // Highlight active nav on scroll
   const sections = document.querySelectorAll('section[id], .hero');
-  const navLinks = document.querySelectorAll('.sidebar nav a');
+  const navLinks = document.querySelectorAll('.topnav a');
   window.addEventListener('scroll', () => {
     let current = 'home';
     sections.forEach(s => {
