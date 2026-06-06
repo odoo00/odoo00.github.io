@@ -3,196 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mohsen Sayed Hassan — Senior Odoo Developer & Technical Team Leader. Odoo 9–19, 70+ ERP projects.">
+  <meta name="description" content="Mohsen Sayed Hassan — Senior Odoo Developer & Technical Team Leader. Odoo 9–19 migration, ZATCA, Salla, Geidea.">
   <title>Mohsen Sayed Hassan | Odoo Portfolio</title>
   <style>
-    :root {
-      --bg: #0f1419;
-      --card: #1a2332;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --accent: #58a6ff;
-      --border: #30363d;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 1.5rem 1rem 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
-    }
-    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.25rem; }
-    .role { color: var(--accent); font-weight: 600; margin-bottom: 1rem; }
-    .contact { font-size: 1rem; }
-    .contact a { color: var(--accent); text-decoration: none; }
-    .contact a:hover { text-decoration: underline; }
-    .badges { margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
-    section { margin-bottom: 1.5rem; }
-    h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    p, li { color: var(--muted); font-size: 0.95rem; }
-    p.summary { color: var(--text); }
-    details {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      overflow: hidden;
-    }
-    summary {
-      padding: 0.85rem 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--text);
-      list-style: none;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary::before { content: "▶ "; color: var(--accent); font-size: 0.75rem; }
-    details[open] summary::before { content: "▼ "; }
-    .detail-body { padding: 0 1rem 1rem; border-top: 1px solid var(--border); }
-    .detail-body ul { margin: 0.5rem 0 0 1.25rem; }
-    .detail-body li { margin-bottom: 0.35rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.5rem; }
-    th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); color: var(--muted); }
-    th { color: var(--text); }
-    .skills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .skills span {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background: var(--accent);
-      color: #0f1419;
-      font-weight: 600;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .cta:hover { opacity: 0.9; }
+    :root { --bg:#0f1419; --card:#1a2332; --text:#e6edf3; --muted:#8b949e; --accent:#58a6ff; --border:#30363d; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.65; padding:1.5rem 1rem 3rem; max-width:860px; margin:0 auto; }
+    header { text-align:center; padding:1.75rem 1rem; border-bottom:1px solid var(--border); margin-bottom:1.75rem; }
+    h1 { font-size:1.7rem; margin-bottom:.2rem; }
+    .role { color:var(--accent); font-weight:600; margin-bottom:.85rem; }
+    .contact { font-size:.95rem; line-height:1.8; }
+    .contact a { color:var(--accent); text-decoration:none; }
+    .contact a:hover { text-decoration:underline; }
+    .tagline { margin-top:.85rem; font-size:.9rem; color:var(--muted); }
+    section { margin-bottom:1.4rem; }
+    h2 { font-size:1rem; color:var(--accent); margin-bottom:.65rem; text-transform:uppercase; letter-spacing:.04em; }
+    p, li { color:var(--muted); font-size:.93rem; }
+    p.lead { color:var(--text); }
+    ul { margin:.4rem 0 0 1.2rem; }
+    li { margin-bottom:.3rem; }
+    details { background:var(--card); border:1px solid var(--border); border-radius:8px; margin-bottom:.45rem; }
+    summary { padding:.8rem 1rem; cursor:pointer; font-weight:600; color:var(--text); list-style:none; }
+    summary::-webkit-details-marker { display:none; }
+    summary::before { content:"▶ "; color:var(--accent); font-size:.72rem; }
+    details[open] summary::before { content:"▼ "; }
+    .body { padding:0 1rem 1rem; border-top:1px solid var(--border); }
+    .job { margin-bottom:1rem; }
+    .job-title { color:var(--text); font-weight:600; }
+    .job-meta { font-size:.85rem; color:var(--muted); margin-bottom:.35rem; }
+    table { width:100%; border-collapse:collapse; font-size:.85rem; margin-top:.4rem; }
+    th, td { text-align:left; padding:.45rem; border-bottom:1px solid var(--border); color:var(--muted); vertical-align:top; }
+    th { color:var(--text); }
+    .skills { display:flex; flex-wrap:wrap; gap:.35rem; }
+    .skills span { background:var(--card); border:1px solid var(--border); padding:.22rem .55rem; border-radius:4px; font-size:.78rem; color:var(--muted); }
+    footer { text-align:center; margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--border); font-size:.82rem; color:var(--muted); }
+    .cta { display:inline-block; margin-top:.85rem; padding:.55rem 1.1rem; background:var(--accent); color:#0f1419; font-weight:600; border-radius:6px; text-decoration:none; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Mohsen Sayed Hassan</h1>
-    <p class="role">Senior Odoo Developer · Technical Team Leader</p>
-    <p class="contact">
-      📱 <a href="tel:+201277523059">+20 127 752 3059</a><br>
-      📧 <a href="mailto:dev.odooerp@gmail.com">dev.odooerp@gmail.com</a><br>
-      💼 <a href="https://www.linkedin.com/in/mohsen-sayed-hassan-12856a2a7/" target="_blank" rel="noopener">LinkedIn</a>
-      · 🐙 <a href="https://github.com/odoo00" target="_blank" rel="noopener">GitHub</a>
-    </p>
-    <p class="badges">Odoo 9 → 19 · 9+ years · Egypt · Saudi Arabia · Iraq · 70+ ERP implementations</p>
-    <a class="cta" href="mailto:dev.odooerp@gmail.com">Contact me</a>
-  </header>
+<header>
+  <h1>Mohsen Sayed Hassan</h1>
+  <p class="role">Senior Odoo Developer · Technical Team Leader</p>
+  <p class="contact">
+    Egypt · 📱 <a href="tel:+201277523059">+20 127 752 3059</a><br>
+    📧 <a href="mailto:dev.odooerp@gmail.com">dev.odooerp@gmail.com</a><br>
+    💼 <a href="https://www.linkedin.com/in/mohsen-sayed-hassan" target="_blank" rel="noopener">LinkedIn</a>
+    · 🐙 <a href="https://github.com/odoo00" target="_blank" rel="noopener">GitHub</a>
+  </p>
+  <p class="tagline">8+ years · Odoo migration 9–19 · Egypt & Saudi Arabia · Full-cycle ERP</p>
+  <a class="cta" href="mailto:dev.odooerp@gmail.com">Contact me</a>
+</header>
 
-  <section>
-    <h2>About</h2>
-    <p class="summary">Technical Team Leader at <strong style="color:var(--text)">CTIT Software</strong> (Jeddah). Full-cycle Odoo ERP: architecture, custom development, ZATCA & GOSI compliance, Salla/Zid eCommerce, Geidea payments, REST APIs, automation, and production support.</p>
-  </section>
+<section>
+  <h2>Summary</h2>
+  <p class="lead">Senior Odoo Developer and Technical Team Leader with 8+ years building scalable ERP solutions across Egypt and Saudi Arabia. Full-cycle implementation: requirements, architecture, custom modules, Odoo migration (9–19), API integration, deployment, and production support. Expertise in Python, Odoo ORM, PostgreSQL, JavaScript, OWL, QWeb, REST/SOAP, ZATCA, Salla, payment gateways, QWeb/DOCX reports, Git, Linux, and Docker.</p>
+</section>
 
-  <section>
-    <h2>Flagship solutions</h2>
+<section>
+  <h2>Experience</h2>
 
-    <details open>
-      <summary>Dynamic Report Designer</summary>
-      <div class="detail-body">
-        <ul>
-          <li>No-code QWeb & DOCX reports — invoices, SO, PO, delivery, journal entries</li>
-          <li>10+ visual themes, per-company branding, header/footer designer</li>
-          <li>Dot-matrix layouts, summary reports, field-mapping wizard</li>
-        </ul>
+  <div class="job">
+    <p class="job-title">Technical Team Leader — CTIT Software</p>
+    <p class="job-meta">Jeddah, Saudi Arabia · Nov 2025 – Present</p>
+    <ul>
+      <li>Lead Odoo technical team: tasks, reviews, delivery, and standards</li>
+      <li>Architecture, documentation, best practices, and scalable design</li>
+      <li>Full lifecycle: customization, integrations, testing, deployment, support</li>
+      <li>Mentor developers; collaborate with consultants, PMs, and stakeholders</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <p class="job-title">Senior Odoo Developer — CTIT Software</p>
+    <p class="job-meta">Jeddah, Saudi Arabia · Nov 2022 – Nov 2025</p>
+    <ul>
+      <li>Performance tuning, PostgreSQL optimization, high-availability operations</li>
+      <li>Deployments, upgrades, migrations, and version transitions</li>
+      <li>Code quality, mentoring, workflows, and production troubleshooting</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <p class="job-title">Senior Odoo Developer — Capital ERP</p>
+    <p class="job-meta">Baghdad, Iraq (Remote) · May 2022 – Oct 2022</p>
+    <ul>
+      <li>Custom modules, API integrations, debugging, and post-go-live support</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <p class="job-title">Senior Odoo Developer — AlMoasher Business</p>
+    <p class="job-meta">Cairo, Egypt · Mar 2020 – May 2022</p>
+    <ul>
+      <li>Sales, Purchase, Inventory, Accounting, HR, Projects customization</li>
+      <li>Security groups, record rules, reports, workflows, and automation</li>
+    </ul>
+  </div>
+
+  <details>
+    <summary>Earlier roles</summary>
+    <div class="body">
+      <div class="job">
+        <p class="job-title">Odoo Developer — Notion Egypt</p>
+        <p class="job-meta">Cairo, Egypt · Jan 2020 – Mar 2020</p>
       </div>
-    </details>
-
-    <details>
-      <summary>Access & Permissions Studio</summary>
-      <div class="detail-body">
-        <ul>
-          <li>Hide menus, fields, buttons, views, chatter per user</li>
-          <li>Rules Mode — configure access on the live form (OWL/JavaScript)</li>
-          <li>Read-only users, import/export restrictions, multi-company</li>
-        </ul>
+      <div class="job">
+        <p class="job-title">Odoo Developer — Balance</p>
+        <p class="job-meta">Cairo, Egypt · Jun 2016 – Jan 2018</p>
       </div>
-    </details>
-
-    <details>
-      <summary>REST Application Gateway</summary>
-      <div class="detail-body">
-        <ul>
-          <li>JWT access & refresh tokens, scopes, rate limits, audit logs</li>
-          <li>Mobile apps, portals, logistics connectors</li>
-        </ul>
-      </div>
-    </details>
-
-    <details>
-      <summary>Webhook Extensions · Salla · Zid</summary>
-      <div class="detail-body">
-        <ul>
-          <li>Outbound HMAC webhooks with retry & delivery tracking</li>
-          <li>Salla OAuth & order webhooks (create, update, status)</li>
-          <li>Zid catalog sync, order controls, branch invoicing</li>
-        </ul>
-      </div>
-    </details>
-  </section>
-
-  <section>
-    <h2>Enterprise projects (15)</h2>
-    <details>
-      <summary>View all clients</summary>
-      <div class="detail-body">
-        <table>
-          <tr><th>Project</th><th>Role</th></tr>
-          <tr><td>CTIT Official Platform</td><td>Team Leader</td></tr>
-          <tr><td>CTIT SaaS Hosting</td><td>Lead</td></tr>
-          <tr><td>Al Shatry</td><td>Senior</td></tr>
-          <tr><td>Al Bilady</td><td>Lead</td></tr>
-          <tr><td>Mega Trust</td><td>Senior</td></tr>
-          <tr><td>Roya</td><td>Senior</td></tr>
-          <tr><td>Al Suwailim (Vegetables)</td><td>Senior</td></tr>
-          <tr><td>GOSI Compliance</td><td>Architect</td></tr>
-          <tr><td>Bonya Real Estate</td><td>Lead</td></tr>
-          <tr><td>IQAA · Dabbos · Aloofy · AlMoasher · Capital ERP · Healthy</td><td>Lead / Senior</td></tr>
-        </table>
-      </div>
-    </details>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>Python</span><span>Odoo 9–19</span><span>PostgreSQL</span><span>JavaScript</span><span>OWL</span><span>QWeb</span><span>REST API</span><span>Docker</span><span>ZATCA</span><span>GOSI</span><span>Salla</span><span>Geidea</span><span>Agile</span>
     </div>
-  </section>
+  </details>
+</section>
 
-  <footer>
-    <p>Portfolio · Mohsen Sayed Hassan · 2026</p>
-    <p><a href="https://github.com/odoo00">github.com/odoo00</a></p>
-  </footer>
+<section>
+  <h2>Featured projects</h2>
+  <details open>
+    <summary>Enterprise & platform work</summary>
+    <div class="body">
+      <table>
+        <tr><th>Project</th><th>Focus</th></tr>
+        <tr><td>CTIT SaaS Platform</td><td>Cloud ERP hosting, subscriptions, shared product stack</td></tr>
+        <tr><td>Al Shatry</td><td>Trading & wholesale ERP, ZATCA e-invoicing</td></tr>
+        <tr><td>Al Bilady</td><td>Retail & distribution, multi-branch automation</td></tr>
+        <tr><td>Mega Trust</td><td>Distribution, purchase workflows, Salla sync</td></tr>
+        <tr><td>Roya</td><td>Multi-branch accounting, tax reports, custom invoicing</td></tr>
+        <tr><td>Al Suwailim</td><td>Produce wholesale, ZATCA, APIs, sale automation</td></tr>
+        <tr><td>GOSI Compliance</td><td>Saudi social insurance rules, wages, audit readiness</td></tr>
+        <tr><td>Bonya Real Estate</td><td>Property contracts, rental accounting, reporting</td></tr>
+      </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Core solutions & integrations</h2>
+  <details open>
+    <summary>Products I developed or led</summary>
+    <div class="body">
+      <table>
+        <tr><th>Solution</th><th>Highlights</th></tr>
+        <tr><td><strong>Dynamic Report Designer</strong></td><td>No-code QWeb & DOCX reports, multiple themes, dot-matrix & summary layouts</td></tr>
+        <tr><td><strong>Access & Permissions Studio</strong></td><td>Menus, fields, views, chatter control; Rules Mode (OWL/JavaScript)</td></tr>
+        <tr><td><strong>REST Application Gateway</strong></td><td>JWT APIs, scopes, webhooks, rate limits, mobile & third-party connectivity</td></tr>
+        <tr><td><strong>ZATCA E-Invoicing</strong></td><td>Invoice submission, QR, retry flows, compliance sync</td></tr>
+        <tr><td><strong>Salla Marketplace Integration</strong></td><td>OAuth, order webhooks, payments, shipping, multichannel sales</td></tr>
+        <tr><td><strong>Geidea Payment Gateway</strong></td><td>Payment links on sales/invoices, callbacks, status handling</td></tr>
+        <tr><td><strong>Logistics Connector</strong></td><td>REST integration for mobile logistics & order status sync</td></tr>
+      </table>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Education & certification</h2>
+  <p><strong style="color:var(--text)">Bachelor's — Computers & Artificial Intelligence</strong><br>Beni Suef University · Graduated Jun 2018</p>
+  <p style="margin-top:.5rem"><strong style="color:var(--text)">Odoo Certification</strong> · El Askary Academy · Sep 2026</p>
+  <p style="margin-top:.5rem">Languages: Arabic (Native) · English (Proficient)</p>
+</section>
+
+<section>
+  <h2>Core competencies</h2>
+  <div class="skills">
+    <span>Python</span><span>Odoo 9–19</span><span>Odoo Migration</span><span>PostgreSQL</span><span>Odoo ORM</span>
+    <span>REST API</span><span>SOAP</span><span>Webhooks</span><span>ZATCA</span><span>Salla</span>
+    <span>JavaScript</span><span>OWL</span><span>QWeb</span><span>XML</span><span>DOCX Reports</span>
+    <span>Git</span><span>Linux</span><span>Docker</span><span>Payment Gateways</span><span>System Integration</span>
+  </div>
+</section>
+
+<footer>
+  <p>Portfolio · Mohsen Sayed Hassan · 2026</p>
+  <p><a href="https://github.com/odoo00">github.com/odoo00</a></p>
+</footer>
 
 </body>
 </html>
